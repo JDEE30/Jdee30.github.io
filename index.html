@@ -10,15 +10,16 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="index.css">
-       </head>
+       </head> 
     <body>
         <div id="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Donate.html">Donate</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
         </div>
+        
         <div class="grid-container">
             <div class="grid-item"><h1 style="margin-top: 0%;color: #ff4040; font-weight: bold; font-size: 60px;">World wide there  are over <h1 style="margin-top: 0%;color: yellow; font-weight: bold; font-size: 60px">150 million <em>people</em> with out homes.</h1></div>
             <div class="grid-item"></div>
@@ -34,69 +35,70 @@
     <div class="section4">
         <h2>2.5 million children will experience homelessness this year in America.</h2>
     </div>
+    <div class="section5">
+      <h2><br>You can search the map below to find a shelter near you<br> You can also draw on the map so you can remember where you may <br> have seen someone in need so you can later drop off food or clothes.<br><br></h2>
+
+
+      <div id="map_canvas"></div> 
+  
+    </div>
 <div id="map">
+
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkvwd3E70g2dEeSGy1Ivc0uPX-3YRhMCQ&libraries=drawing&callback=initMap" async defer></script>
-    </body>
-    <script>
-       var map, infoWindow; 
+
+
+</body>
+
+
+<script> 
+
+  var map;
   function initMap() {
-       map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-
-        infoWindow = new google.maps.InfoWindow;
-
-// Try HTML5 geolocation.
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
-
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('Location found.');
-    infoWindow.open(map);
-    map.setCenter(pos);
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
-  });
-} else {
-  // Browser doesn't support Geolocation
-  handleLocationError(false, infoWindow, map.getCenter());
-}
-
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-infoWindow.setPosition(pos);
-infoWindow.setContent(browserHasGeolocation ?
-                      'Error: The Geolocation service failed.' :
-                      'Error: Your browser doesn\'t support geolocation.');
-infoWindow.open(map);
-}
-
-
-        var drawingManager = new google.maps.drawing.DrawingManager({
-          drawingMode: google.maps.drawing.OverlayType.MARKER,
-          drawingControl: true,
-          drawingControlOptions: {
-            position: google.maps.ControlPosition.TOP_CENTER,
-            drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
-          },
-          markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
-          circleOptions: {
-            fillColor: '#ffff00',
-            fillOpacity: 1,
-            strokeWeight: 5,
-            clickable: false,
-            editable: true,
-            zIndex: 1
-          }
-        });
-        drawingManager.setMap(map);
-      }
-    </script>
-
-             </html>
-     
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 29.424349, lng:  -98.491142},
+          zoom: 14,
+          // only show roadmap type of map, and disable ability to switch to other type
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          mapTypeControl: false
+      });
+  
+      map.data.setControls(['Polygon']);
+      map.data.setStyle({
+          editable: true,
+          draggable: true
+      });
+      bindDataLayerListeners(map.data);
+  
+      //load saved data
+      loadPolygons(map);
+  }
+  
+  
+  // Apply listeners to refresh the GeoJson display on a given data layer.
+  function bindDataLayerListeners(dataLayer) {
+      dataLayer.addListener('addfeature', savePolygon);
+      dataLayer.addListener('removefeature', savePolygon);
+      dataLayer.addListener('setgeometry', savePolygon);
+  }
+  
+  function loadPolygons(map) {
+      var data = JSON.parse(localStorage.getItem('geoData'));
+  
+      map.data.forEach(function (f) {
+          map.data.remove(f);
+      });
+      map.data.addGeoJson(data)
+  }
+  
+  
+  
+  function savePolygon() {
+      map.data.toGeoJson(function (json) {
+          localStorage.setItem('geoData', JSON.stringify(json));
+      });
+  }
+  initMap();
+  </script>
+                 </html>
+       
