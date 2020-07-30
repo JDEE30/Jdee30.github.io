@@ -1,4 +1,4 @@
-  }.card1 {
+.card1 {
     float: left;
 }
 
@@ -36,4 +36,10 @@
     border: width: 1px #2196F3;
     margin-top: 11px;
     text-align: center;
+}
+
+img {
+
+    max-width: 200vmax;
+    max-height: 200vmin;
 }
