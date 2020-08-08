@@ -20,3 +20,8 @@ find users to deliver those donations to people in need via an incentive derived
 
 This technology would be akin to how uber eats leverages google maps and some logistics to dispatch people to a users location.
 
+
+update: 08/08/2020
+I am currently working on making this website responsive in my spare time.
+updates are usually done on saturdays as they are my least busy day.
+
