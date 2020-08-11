@@ -1,9 +1,9 @@
 .card1 {
     float: left;
 }
-
+  
 .card3 {
-    float: right;
+    float: right; 
 
 }
 
@@ -36,6 +36,8 @@
     border: width: 1px #2196F3;
     margin-top: 11px;
     text-align: center;
+    
+
 }
 
 img {
