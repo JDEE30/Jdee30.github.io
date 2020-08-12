@@ -50,3 +50,10 @@ materialize.css:4477
 nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     height: 64px;
 }
+
+
+.pagination {
+    margin-top: 90px;
+    width: 100%;
+
+}
