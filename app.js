@@ -73,3 +73,5 @@ function initAutocomplete() {
     });
   }
   
+
+  alert("We are not currently an active Social Welfare Organization (501c) recognized by the IRS as of yet. This process is pending and this website is still under construction. This means we are not accepting any donations at this time. Feel free to check in with us in the future. Thanks for stopping by.");
