@@ -1,14 +1,20 @@
 function initAutocomplete() {
+  
     var map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: 29.424349, lng:  -98.491142 },
       zoom: 13,
-      mapTypeId: "roadmap"
+      streetViewControl: false,
+      mapTypeControl:  false,
+      fullscreenControl: false,
+      scaleControl : false,
+      zoomControl: false,
     });
-  
+
     // Create the search box and link it to the UI element.
     var input = document.getElementById("pac-input");
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+ 
   
     // Bias the SearchBox results towards current map's viewport.
     map.addListener("bounds_changed", function() {
