@@ -4,12 +4,17 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" as="style">
+    <link rel="preload" href="./index.css" as="style">
+    <link rel="preload" href="./main.scss" as="style">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"  media="screen,projection"/> 
      <link type="text/css" rel="stylesheet" href="./index.css">
      <link type="text/css" rel="stylesheet" href="./main.scss">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preload" href="./app.js" as="script">
+    <link rel="preload" href="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTixJb4gx3aIse6RuvqmaxvGIudbVs-0&callback=initAutocomplete&libraries=places&v=weekly" as="script">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTixJb4gx3aIse6RuvqmaxvGIudbVs-0&callback=initAutocomplete&libraries=places&v=weekly" defer> </script>
     <script src="./app.js"></script>
   </head>
@@ -32,10 +37,9 @@
          <!-- paralax-->
     <div class="parallax-container">
       <div class="parallax">
-        <img class="responsive-img"src="https://ik.imagekit.io/2l9aizfajk/group-of-children-walking-near-body-of-water-silhouette-939700_PMAy4cpUl.png" class="responsive-img" style="width: 100%; height: 1050px; padding-bottom: 100px; "></div>
-<h1 class="hover white-text center-align" style="padding: 10% 2% 10% 2%; font-size: 5vmax;"><a  class="white-text "href="#donate">Donate now to help a neighbor in need</a></h1>
-
-  </div>
+        <img class="responsive-img" class="lazy" src="https://ik.imagekit.io/2l9aizfajk/group-of-children-walking-near-body-of-water-silhouette-939700_PMAy4cpUl.png" class="responsive-img" style="width: 100%; height: 40%; max-height: 100%; min-height: 100%;"></div>
+        <h1 class="hover white-text center-align" style="padding: 10% 2% 10% 2%; font-size: 5vw; top: 20%; position: absolute;">Donate now to help a neighbor in need.</h1>
+          </div>
 
   <div>
     <h2 style="text-align: center;">Donate Now</h2>
@@ -50,7 +54,7 @@
 
 
 <div class="parallax-container">
-  <div class="parallax">   <img class="responsive-img"src="https://ik.imagekit.io/2l9aizfajk/pexels-ketut-subiyanto-4546132_RTX3ayBBIP.jpg" style="width: 100%; height: 2000px; padding-bottom: 100px;"></div>
+  <div class="parallax">   <img class="responsive-img" class="lazy" src="https://ik.imagekit.io/2l9aizfajk/pexels-ketut-subiyanto-4546132_RTX3ayBBIP.jpg" style="width: 100%; height: 2000px; padding-bottom: 100px;"></div>
 </div>
 <br>
 <br>
@@ -73,12 +77,8 @@
     <div class="parallax-container">
       <div class="parallax">
        
-        <img class="responsive-img"src="https://ik.imagekit.io/2l9aizfajk/pexels-rokas-snarskis-1124555_rT_jK0Gbp7.jpg" class="responsive-img" style="width: 100%; height: 800px"></div>
-
-
-        
+        <img class="responsive-img" class="lazy" src="https://ik.imagekit.io/2l9aizfajk/pexels-rokas-snarskis-1124555_rT_jK0Gbp7.jpg" class="responsive-img" style="width: 100%; height: 40%; max-height: 100%; min-height: 100%;"></div>
         <a id="donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=allstartechnologies1%40gmail.com&item_name=Donate+to+help+the+homeless&currency_code=USD&source=url" class="waves-effect center-align blue waves-light btn-large hover "  style="display:block; top: 50%; opacity: 80%;">Click here to donate to a neighbor in need</a>
-
   </div>
    
     </div>
@@ -105,10 +105,11 @@
             </nav>
           </div>
     <!--JavaScript at end of body for optimized loading-->
+    <link rel="preload" href="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" as="script">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
-      <script> 
-      
+      <script>       
       $(document).ready(function(){
         $(".dropdown-trigger").dropdown();
         $('.parallax').parallax();
